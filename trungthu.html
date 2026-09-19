@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Trung Thu 🌕</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    background: linear-gradient(#10194d, #49186b);
+    color: white;
+}
+
+.card {
+    width: 350px;
+    padding: 30px;
+    text-align: center;
+    background: #17123d;
+    border-radius: 20px;
+}
+
+h1 {
+    color: #ffe889;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 8px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    width: 95%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #ffb52e;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: #ff7777;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="login">
+
+<h1>🌕 Trung Thu 🌕</h1>
+
+<p>Nhập mã để vào trang</p>
+
+<input id="code" type="password" placeholder="Mã">
+
+<button onclick="checkCode()">Vào trang</button>
+
+<p class="error" id="error"></p>
+
+</div>
+
+
+<div class="card hidden" id="main">
+
+<h1>🏮 Trung Thu vui vẻ! 🏮</h1>
+
+<p>Tên bạn là gì?</p>
+
+<input id="name" placeholder="Nhập tên của bạn">
+
+<p id="question">Bạn muốn quà gì?</p>
+
+<input id="gift" placeholder="Nhập tên món quà">
+
+<button onclick="submitForm()">Gửi 🎁</button>
+
+<p id="result"></p>
+
+</div>
+
+
+<script>
+
+function checkCode() {
+
+    if (document.getElementById("code").value === "2014hsA1") {
+
+        document.getElementById("login").classList.add("hidden");
+
+        document.getElementById("main").classList.remove("hidden");
+
+    } else {
+
+        document.getElementById("error").innerText = "Sai mã rồi 😭";
+
+    }
+
+}
+
+
+function submitForm() {
+
+    let name = document.getElementById("name").value;
+
+    let gift = document.getElementById("gift").value;
+
+    if (name === "" || gift === "") {
+
+        document.getElementById("result").innerText =
+        "Điền đủ tên và quà nhé!";
+
+        return;
+
+    }
+
+    document.getElementById("result").innerText =
+    name + " ơi, Trung Thu vui vẻ! 🎉 Bạn muốn " + gift + " 🎁";
+
+}
+
+</script>
+
+</body>
+</html>
